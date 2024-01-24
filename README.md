@@ -14,7 +14,7 @@ The JS app "Task Board" holds a board of tasks (in Trello style). Each task cons
 The app is based on Node.js + Express.js + Pug.
  - It has **no database** and app data is not persistent!
 
-## RESTful API
+## RESTful API Specification
 
 The following endpoints are supported:
  - `GET /api` - list all API endpoints
