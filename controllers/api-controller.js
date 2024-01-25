@@ -38,7 +38,7 @@ function setup(app, data) {
       res.send(result);
   });
 
-  app.post('/api/tasks', function(req, res) {
+  app.post('/api/tasks_updated', function(req, res) {
     let result = data.addTask(
       req.body.title, req.body.description, req.body.board);
     if (result.errMsg)
