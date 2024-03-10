@@ -10,7 +10,7 @@ block content
       div#searchResult No tasks found.
       br
     else
-      div#searchResult tasks found.
+      div#searchResult #{tasks.length} tasks found.
       br
       div.tasks-grid
         each task in tasks
