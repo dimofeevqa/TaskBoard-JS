@@ -20,8 +20,8 @@ jobs:
           DEPLOY_HOOK_URL=${{ secrets.DEPLOY_HOOK_URL }}
           COMMIT_SHA=${{ steps.extract_sha.outputs.commit_sha }}
           curl -X POST "$DEPLOY_HOOK_URL&ref=$COMMIT_SHA"
-      - name: Wait for 2 minutes to complete deploy
-        run: sleep 120
+      - name: Wait for 3 minutes to complete deploy
+        run: sleep 180
 
   run-tests:
     needs: deploy-stage
@@ -50,6 +50,7 @@ jobs:
   deploy-prod:
     needs: run-tests
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to staging
         uses: johnbeynon/render-deploy-action@v0.0.8
