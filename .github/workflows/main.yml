@@ -10,6 +10,14 @@ jobs:
   deploy-stage:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract Commit SHA
+        id: extract_sha
+        run: echo "::set-output name=commit_sha::$(git rev-parse HEAD)"
+      - name: Trigger Render Deploy Hook
+        run: |
+          DEPLOY_HOOK_URL="https://api.render.com/deploy/srv-cmmfba0cmk4c73e1qlmg"
+          COMMIT_SHA=${{ steps.extract_sha.outputs.commit_sha }}
+          curl -X POST "$DEPLOY_HOOK_URL?ref=$COMMIT_SHA"
       - name: Wait for 2 minutes to complete deploy
         run: sleep 120
 
