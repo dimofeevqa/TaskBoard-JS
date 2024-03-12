@@ -22,7 +22,7 @@ namespace TaskBoardWebUiTest
             driver.Dispose();
         }
 
-        [TestCase("non-existing", "No tasks found.")]
+        [TestCase("non-existing", "No results found.")]
         [TestCase("Edit tasks", "1 tasks found.")]
         public void Search(string searchTerm, string expected)
         {
