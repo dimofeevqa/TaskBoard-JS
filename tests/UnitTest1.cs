@@ -24,6 +24,7 @@ namespace TaskBoardWebUiTest
 
         [TestCase("non-existing", "No results found.")]
         [TestCase("Edit tasks", "1 tasks found.")]
+        [TestCase("Edit tasks", "1 tasks found.")]
         public void Search(string searchTerm, string expected)
         {
             driver.FindElement(By.LinkText("Search")).Click();
